@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romanze im Perfekt – Song & Interaktive Übungen</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --primary-hover: #357abd;
+            --bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --correct: #28a745;
+            --incorrect: #dc3545;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-hover);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .script-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .script-section h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .script-line {
+            margin: 4px 0;
+        }
+
+        .refrain {
+            font-style: italic;
+            color: #666;
+        }
+
+        .exercise-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+        }
+
+        input.correct {
+            border-color: var(--correct) !important;
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        input.incorrect {
+            border-color: var(--incorrect) !important;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .feedback-symbol {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .feedback-symbol.correct {
+            color: var(--correct);
+        }
+
+        .feedback-symbol.incorrect {
+            color: var(--incorrect);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .grid-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button.btn-check {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 15px;
+        }
+
+        button.btn-check:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .result-box {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .solution-text {
+            font-size: 12px;
+            color: #666;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Romanze im Perfekt</h1>
+
+    <!-- SKRIPT -->
+    <div class="card">
+        <h2>Songtext & Verbstruktur</h2>
+        
+        <div class="script-section">
+            <h3>Einleitung</h3>
+            <div class="script-line">– Weißt du noch?</div>
+            <div class="script-line">– Aber klar!</div>
+            <div class="script-line">– Wir waren so jung.</div>
+            <div class="script-line">– Wir waren so grün.</div>
+            <div class="script-line">– Grün wie der Salat.</div>
+            <div class="script-line">– Unsere Romanze begann im Salat.</div>
+            <div class="script-line">– Liebe auf den ersten Blick.</div>
+            <div class="script-line">– Und jedes Wochenende nahm ich den Bus.</div>
+            <div class="script-line">– Und kam zu dir.</div>
+        </div>
+
+        <div class="script-section">
+            <h3>Strophe 1</h3>
+            <div class="script-line">nehmen – genommen: Ich habe den Bus genommen.</div>
+            <div class="script-line">kommen – gekommen: Ich bin zu dir gekommen.</div>
+            <div class="script-line">schwimmen – geschwommen: Ich bin mit dir geschwommen.</div>
+            <div class="script-line">gewinnen – gewonnen: Ich habe dein Herz gewonnen.</div>
+            <div class="script-line">fragen – gefragt: Ich habe dich gefragt.</div>
+            <div class="script-line">sagen – gesagt: Du hast mir gesagt.</div>
+            <div class="script-line">machen – gemacht: Es hat mir Spaß gemacht.</div>
+            <div class="script-line">lachen – gelacht: Da hast du gelacht.</div>
+        </div>
+
+        <div class="script-section refrain">
+            <h3>(Refrain)</h3>
+            <div class="script-line">La la la la la la la la la la la</div>
+            <div class="script-line">La la la la la la la la la</div>
+        </div>
+
+        <div class="script-section">
+            <h3>Strophe 2</h3>
+            <div class="script-line">sitzen – gesessen: Ich habe bei dir gesessen.</div>
+            <div class="script-line">essen – gegessen: Ich habe mit dir gegessen.</div>
+            <div class="script-line">singen – gesungen: Ich habe für dich gesungen.</div>
+            <div class="script-line">klingen – geklungen: Das Lied hat gut geklungen.</div>
+            <div class="script-line">bleiben – geblieben: Ich bin dir treu geblieben.</div>
+            <div class="script-line">schreiben – geschrieben: Ich habe dir oft geschrieben.</div>
+            <div class="script-line">lesen – gelesen: Ich habe den Brief gelesen.</div>
+            <div class="script-line">sein – gewesen: Es ist so schön gewesen.</div>
+        </div>
+
+        <div class="script-section refrain">
+            <h3>(Refrain)</h3>
+            <div class="script-line">La la la la la la la la la la la</div>
+            <div class="script-line">La la la la la la la la la</div>
+        </div>
+    </div>
+
+    <!-- AUFGABE 1 -->
+    <div class="card">
+        <h2>Aufgabe 1: Setze das Partizip II ein</h2>
+        <p>Ergänze die Lücken mit der passenden Form des Partizips II:</p>
+        
+        <form id="ex1-form">
+            <div class="exercise-item">1. Ich habe den Bus <input type="text" data-answer="genommen" id="ex1-1"> (nehmen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">2. Ich bin zu dir <input type="text" data-answer="gekommen" id="ex1-2"> (kommen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">3. Ich bin mit dir <input type="text" data-answer="geschwommen" id="ex1-3"> (schwimmen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">4. Ich habe dein Herz <input type="text" data-answer="gewonnen" id="ex1-4"> (gewinnen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">5. Ich habe dich <input type="text" data-answer="gefragt" id="ex1-5"> (fragen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">6. Du hast es mir <input type="text" data-answer="gesagt" id="ex1-6"> (sagen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">7. Es hat mir Spaß <input type="text" data-answer="gemacht" id="ex1-7"> (machen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">8. Da hast du <input type="text" data-answer="gelacht" id="ex1-8"> (lachen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">9. Ich habe bei dir <input type="text" data-answer="gesessen" id="ex1-9"> (sitzen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">10. Ich habe mit dir <input type="text" data-answer="gegessen" id="ex1-10"> (essen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">11. Ich habe für dich <input type="text" data-answer="gesungen" id="ex1-11"> (singen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">12. Das Lied hat gut <input type="text" data-answer="geklungen" id="ex1-12"> (klingen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">13. Ich bin dir treu <input type="text" data-answer="geblieben" id="ex1-13"> (bleiben). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">14. Ich habe dir oft <input type="text" data-answer="geschrieben" id="ex1-14"> (schreiben). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">15. Ich habe den Brief <input type="text" data-answer="gelesen" id="ex1-15"> (lesen). <span class="feedback-symbol"></span></div>
+            <div class="exercise-item">16. Es ist so schön <input type="text" data-answer="gewesen" id="ex1-16"> (sein). <span class="feedback-symbol"></span></div>
+            
+            <button type="button" class="btn-check" onclick="checkExercise1()">Aufgabe 1 überprüfen</button>
+            <div class="result-box" id="ex1-result"></div>
+        </form>
+    </div>
+
+    <!-- AUFGABE 2 -->
+    <div class="card">
+        <h2>Aufgabe 2: Zuordnung (Infinitiv → Partizip II)</h2>
+        <p>Schreibe die 3. Form (Partizip II) zu jedem Verb:</p>
+        
+        <form id="ex2-form">
+            <div class="grid-container">
+                <div class="grid-item">nehmen – <input type="text" data-answer="genommen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">kommen – <input type="text" data-answer="gekommen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">schwimmen – <input type="text" data-answer="geschwommen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">gewinnen – <input type="text" data-answer="gewonnen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">fragen – <input type="text" data-answer="gefragt" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">sagen – <input type="text" data-answer="gesagt" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">machen – <input type="text" data-answer="gemacht" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">lachen – <input type="text" data-answer="gelacht" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">sitzen – <input type="text" data-answer="gesessen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">essen – <input type="text" data-answer="gegessen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">singen – <input type="text" data-answer="gesungen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">klingen – <input type="text" data-answer="geklungen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">bleiben – <input type="text" data-answer="geblieben" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">schreiben – <input type="text" data-answer="geschrieben" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">lesen – <input type="text" data-answer="gelesen" size="12"> <span class="feedback-symbol"></span></div>
+                <div class="grid-item">sein – <input type="text" data-answer="gewesen" size="12"> <span class="feedback-symbol"></span></div>
+            </div>
+
+            <button type="button" class="btn-check" onclick="checkExercise2()">Aufgabe 2 überprüfen</button>
+            <div class="result-box" id="ex2-result"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function evaluateForm(containerId, resultId) {
+        const container = document.getElementById(containerId);
+        const inputs = container.querySelectorAll('input[type="text"]');
+        let correctCount = 0;
+        let totalCount = inputs.length;
+
+        inputs.forEach(input => {
+            const expectedAnswer = input.getAttribute('data-answer').trim().toLowerCase();
+            const userAnswer = input.value.trim().toLowerCase();
+            const feedbackSpan = input.nextElementSibling;
+
+            // Existing solution display removal
+            const existingSolution = input.parentNode.querySelector('.solution-text');
+            if (existingSolution) {
+                existingSolution.remove();
+            }
+
+            if (userAnswer === expectedAnswer) {
+                input.className = 'correct';
+                if (feedbackSpan && feedbackSpan.classList.contains('feedback-symbol')) {
+                    feedbackSpan.textContent = '✓';
+                    feedbackSpan.className = 'feedback-symbol correct';
+                }
+                correctCount++;
+            } else {
+                input.className = 'incorrect';
+                if (feedbackSpan && feedbackSpan.classList.contains('feedback-symbol')) {
+                    feedbackSpan.textContent = '✗';
+                    feedbackSpan.className = 'feedback-symbol incorrect';
+                }
+                
+                // Show correct solution if wrong
+                if (userAnswer !== "") {
+                    const sol = document.createElement('span');
+                    sol.className = 'solution-text';
+                    sol.textContent = `(${input.getAttribute('data-answer')})`;
+                    input.parentNode.appendChild(sol);
+                }
+            }
+        });
+
+        const resultBox = document.getElementById(resultId);
+        resultBox.textContent = `Ergebnis: ${correctCount} von ${totalCount} richtig gelöst.`;
+        if (correctCount === totalCount) {
+            resultBox.style.color = 'var(--correct)';
+        } else {
+            resultBox.style.color = 'var(--incorrect)';
+        }
+    }
+
+    function checkExercise1() {
+        evaluateForm('ex1-form', 'ex1-result');
+    }
+
+    function checkExercise2() {
+        evaluateForm('ex2-form', 'ex2-result');
+    }
+</script>
+
+</body>
+</html>
